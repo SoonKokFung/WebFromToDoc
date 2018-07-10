@@ -14,15 +14,14 @@ namespace WebFromToDoc
         protected void Unnamed_Click(object sender, EventArgs e)
         {
             //load the template
-            createDoc(Server.MapPath("Template/Example.docx"));
+            createDoc(Server.MapPath("Template/MyTemplate.dotx"));
         }
         private void createDoc(string filePath)
         {   //check the template is available
             if (File.Exists(filePath))
             {
                 //load the doc
-                Document document = new Document();
-                document.LoadFromFile(filePath);
+                Document document = new Document(filePath);
 
                 //find and replace the content
                 document.Replace("<Title>", txtTitle.Text, true, true);
@@ -35,7 +34,6 @@ namespace WebFromToDoc
                 //save the doc in temporarily folder
                 string tempPath = Server.MapPath("Temporarily/" + DateTime.Now.ToString("ddmmyyyyhhmmssffffff") + ".docx");
                 document.SaveToFile(tempPath, FileFormat.Docx);
-
                 //let the user download and delete it the doc
                 Response.ContentType = "Application/msword";
                 Response.AddHeader("Content-Disposition", "attachment;filename= Example.docx");

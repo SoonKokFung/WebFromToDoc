@@ -114,6 +114,9 @@
     </Content>
     <Content Include="Template\Example.doc" />
     <Content Include="Template\Example.docx" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
+    <None Include="Properties\PublishProfiles\Testingss99 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Testingss99 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
