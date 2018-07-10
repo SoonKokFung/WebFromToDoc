@@ -1,14 +1,6 @@
-﻿
-using Spire.Doc;
+﻿using Spire.Doc;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WebFromToDoc
 {
@@ -46,7 +38,7 @@ namespace WebFromToDoc
 
                 //let the user download and delete it the doc
                 Response.ContentType = "Application/msword";
-                Response.AddHeader("Content-Disposition", "attachment;filename=" + tempPath);
+                Response.AddHeader("Content-Disposition", "attachment;filename= Example.docx");
                 Response.TransmitFile(Path.Combine(tempPath.ToString()));
                 Response.Flush();
                 File.Delete(tempPath);
