@@ -15,7 +15,16 @@
             Title
             <asp:TextBox runat="server" ID="txtTitle" required />
             <br />
+            <br />
+            Excel File
+            <asp:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+            <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+            <br />
             <asp:Button runat="server" Text="Ok" OnClick="Unnamed_Click" />
+            <br />
+            <br />
         </div>
     </form>
 </body>
