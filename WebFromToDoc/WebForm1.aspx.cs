@@ -78,11 +78,11 @@ namespace WebFromToDoc
                 DataTable dt = getData(Server.MapPath("Excel/" + DropDownList1.SelectedValue));
 
 
-                string[] Header = dt.Columns.Cast<DataColumn>()
+                string[] header = dt.Columns.Cast<DataColumn>()
                                  .Select(x => x.ColumnName)
                                  .ToArray();
                 //Add Cells
-                table.ResetCells(dt.Rows.Count + 1, Header.Length);
+                table.ResetCells(dt.Rows.Count + 1, header.Length);
 
                 //Header Row
                 TableRow FRow = table.Rows[0];
@@ -91,14 +91,14 @@ namespace WebFromToDoc
                 FRow.Height = 23;
                 //Header Format
                 FRow.RowFormat.BackColor = Color.AliceBlue;
-                for (int i = 0; i < Header.Length; i++)
+                for (int x = 0; x < header.Length; x++)
                 {
                     //Cell Alignment
-                    Paragraph p = FRow.Cells[i].AddParagraph();
-                    FRow.Cells[i].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+                    Paragraph p = FRow.Cells[x].AddParagraph();
+                    FRow.Cells[x].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
                     p.Format.HorizontalAlignment = HorizontalAlignment.Center;
                     //Data Format
-                    TextRange tr = p.AppendText(Header[i]);
+                    TextRange tr = p.AppendText(header[x]);
                     tr.CharacterFormat.FontName = "Calibri";
                     tr.CharacterFormat.FontSize = 14;
                     tr.CharacterFormat.TextColor = Color.Teal;
