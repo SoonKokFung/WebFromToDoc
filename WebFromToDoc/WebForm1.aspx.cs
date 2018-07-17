@@ -33,19 +33,22 @@ namespace WebFromToDoc
 
         }
         private List<string> get()
-        {
-            List<string> videoPath = new List<string>();
+        {   //get all excel file 
+            List<string> excelPath = new List<string>();
             foreach (string file in Directory.GetFiles(Server.MapPath("~/Excel")))
             {
-                videoPath.Add(file.Substring(file.LastIndexOf("\\") + 1));
+                excelPath.Add(file.Substring(file.LastIndexOf("\\") + 1));
             }
-            return videoPath;
+            return excelPath;
         }
         private DataTable getData(string filePath)
         {
+            //read the excel file
             Workbook workbook = new Workbook();
             workbook.LoadFromFile(filePath);
+            //read the excel first worksheet
             Worksheet sheet = workbook.Worksheets[0];
+            //return the data as DataTable
             return sheet.ExportDataTable();
         }
         private void createDoc(string filePath)
